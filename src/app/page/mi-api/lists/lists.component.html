@@ -1,5 +1,114 @@
 
 <button class="btn btn-success" (click)="openModal()">Agregar</button>
-<app-ejemplo-list [carro]="carro"></app-ejemplo-list>
+<app-ejemplo-list [Flore]="flor"></app-ejemplo-list>
 <app-modal-agregar></app-modal-agregar>
 <app-modal-edit></app-modal-edit>
+<style>
+  /* Estilos para el botón "Agregar" */
+     /* Estilos para el botón "Agregar" */
+     .btn-success {
+        background: linear-gradient(135deg, #f56d97, #e50b69); /* Gradiente llamativo (rosa a fucsia) */
+        border: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(255, 0, 255, 0.3); /* Sombra morada brillante */
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-success:hover {
+        background: linear-gradient(135deg, #e50b69, #c3005f); /* Cambio de gradiente a tonos más intensos */
+        box-shadow: 0 8px 16px rgba(255, 0, 255, 0.6); /* Resplandor más fuerte al pasar el ratón */
+        transform: scale(1.05); /* Efecto de aumento */
+        filter: brightness(1.2); /* Brillo al pasar el ratón */
+    }
+
+    .btn-success:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.8); /* Efecto de foco más visible */
+    }
+
+    .btn-success:active {
+        transform: scale(0.98); /* Efecto de presión en el botón */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más ligera al hacer clic */
+    }
+
+    /* Estilos para la tabla */
+    .table-container {
+        margin-top: 30px; /* Se añadió margen superior */
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background-color: #f1f5f9;
+    }
+
+    th {
+        padding: 10px;
+        text-align: left;
+        background-color: #f56d97; /* Tono de rosa para el encabezado */
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    tbody {
+        background-color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9fafb;
+    }
+
+    tr:hover {
+        background-color: #e0f7f7;
+        transition: background-color 0.3s ease;
+    }
+
+    td {
+        padding: 10px;
+        text-align: left;
+        color: #333333;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    button i {
+        font-size: 1.2rem;
+    }
+
+    /* Estilos para los botones de acción (editar y eliminar) */
+    button.btn-outline-success,
+    button.btn-outline-danger {
+        border-radius: 6px;
+        padding: 6px 12px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button.btn-outline-success:hover {
+        background-color: #2b8e61;
+        color: #ffffff;
+    }
+
+    button.btn-outline-danger:hover {
+        background-color: #d9534f;
+        color: #ffffff;
+    }
+
+    button.btn-outline-success:active,
+    button.btn-outline-danger:active {
+        transform: scale(0.95);
+    }
+</style>

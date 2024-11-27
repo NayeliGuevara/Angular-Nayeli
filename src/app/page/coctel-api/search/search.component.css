@@ -1,10 +1,12 @@
 .input-group {
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Uniforme en todos los bordes */
+  overflow: hidden; /* Asegura que los elementos dentro no se desborden */
 }
 
 .form-control {
-  border: 2px solid #28a745; /* Azul */
+  border: 2px solid #d298e0;
   border-right: none;
   padding: 10px;
   border-radius: 8px 0 0 8px;
@@ -13,17 +15,17 @@
 }
 
 .form-control:focus {
-  border-color: #28a745; /* Verde al enfocar */
-  box-shadow: 0 0 8px #28a745;
+  border-color: #d298e0;
+  box-shadow: 0 0 8px rgba(210, 152, 224, 0.5); /* Sombra suave para enfoque */
 }
 
-::placeholder {
+.form-control::placeholder {
   color: #888;
   font-style: italic;
 }
 
 .btn-outline-primary {
-  border: 2px solid #1e90ff; /* Azul */
+  border: 2px solid #1e90ff;
   color: #1e90ff;
   background-color: #fff;
   padding: 10px 20px;
@@ -32,13 +34,13 @@
 }
 
 .btn-outline-primary:hover {
-  background-color: #28a745; /* Verde al hacer hover */
+  background-color: #d298e0;
   color: #fff;
-  border-color: #28a745;
+  border-color: #d298e0;
 }
 
 .btn-outline-primary:focus {
-  box-shadow: 0 0 8px #ff6347; /* Naranja al enfocar */
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.5); /* Sombra más tenue */
   border-color: #ff6347;
 }
 
@@ -52,4 +54,30 @@
   border-color: #d3d3d3;
   color: #aaa;
 }
+.btn-outline-success {
+  border: 2px solid #d298e0; /* Color verde éxito */
+  color: #d298e0;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 8px 8px 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
+.btn-outline-success i {
+  color: inherit; /* El icono toma el color del botón */
+  font-size: 1.2rem;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:hover i {
+  background-color: #d298e0;
+  color: #fff; /* El icono y el texto toman el color blanco al hacer hover */
+  border-color: #d298e0;
+}
+
+.btn-outline-success:focus,
+.btn-outline-success:focus i {
+  color: #fff; /* Icono y texto blancos cuando el botón está enfocado */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Sombra verde */
+  border-color: #d298e0;
+}

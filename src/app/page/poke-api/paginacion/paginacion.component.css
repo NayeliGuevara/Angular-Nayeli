@@ -1,52 +1,20 @@
-.page-item:hover{
-    cursor: pointer;
-}
-/* General Pagination Styles */
-.pagination {
-  margin-top: 20px;
-  padding: 0;
-  list-style-type: none;
-}
-
-.page-item {
-  margin: 0 5px;
-}
-
-.page-link {
-  display: block;
-  padding: 10px 20px;
-  color: #00ff15;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-  border-radius: 5px;
-  text-decoration: none;
+.pagination .page-link {
+  color: #0d0d0e; /* Verde claro */
+  background-color: #d298e0; /* Fondo verde muy claro */
+  border: 1px solid #101110; /* Borde verde */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover and active states */
-.page-link:hover {
-  color: #fff;
-  background-color: #00ff15;
-  border-color: #00ff2a;
+.pagination .page-link:hover {
+  background-color: #d298e0; /* Fondo verde claro en hover */
+  color: white; /* Texto blanco en hover */
 }
 
-.page-item.disabled .page-link {
-  color: #6c757d;
-  pointer-events: none;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
-}
 
-/* Centering pagination */
-.pagination.justify-content-center {
-  display: flex;
-  justify-content: center;
-  padding: 0;
+.page-item{
+  cursor: pointer;
+  margin-right: 3px;
 }
-
-/* Responsive Adjustments */
-@media (max-width: 576px) {
-  .page-link {
-    padding: 8px 16px;
-  }
+.page-link{
+  cursor: pointer;
 }

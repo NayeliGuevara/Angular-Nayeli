@@ -1,0 +1,31 @@
+.btn-success {
+    background: linear-gradient(135deg, #6ee7b7, #34d399); /* Gradiente verde suave */
+    border: none;
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.2rem; /* Tamaño de texto un poco más grande */
+    padding: 12px 20px; /* Más espacio en los bordes */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-weight: bold; /* Negrita para resaltar */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(135deg, #34d399, #16a34a); /* Gradiente más oscuro en el hover */
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.4); /* Sombra más pronunciada con un toque verde */
+    transform: scale(1.05); /* Aumento de tamaño para el hover */
+    filter: brightness(1.1); /* Efecto de brillo al hacer hover */
+  }
+  
+  .btn-success:focus {
+    outline: none; /* Elimina el contorno del botón al hacer clic */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Sombra intensa verde cuando el botón está enfocado */
+  }
+  
+  .btn-success:active {
+    transform: scale(1); /* El tamaño vuelve al normal cuando se hace clic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave al hacer clic */
+  }
+  

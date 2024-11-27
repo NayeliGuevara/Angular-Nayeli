@@ -1,39 +1,34 @@
-<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="carroModalLabel" aria-hidden="true"
-    *ngIf="carro">
+<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="florModalLabel" aria-hidden="true" *ngIf="flor">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1>{{carro.marca}} {{carro.modelo}}</h1>
+                <h1>{{ flor.nombre }} - {{ flor.color }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-                <label for="id" class="form-label">ID</label>
-                <input type="text" id="id" disabled class="form-control" value="{{carro._id}}">
+                <form (ngSubmit)="editarFlor(nombre.value, color.value, temporada.value, caracteristica.value, flor._id!)">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" id="id" disabled class="form-control" [value]="flor._id">
 
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" id="marca" class="form-control" #marca value="{{carro.marca}}">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" #nombre [value]="flor.nombre">
 
-                <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" id="modelo" class="form-control" #modelo value="{{carro.modelo}}">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" id="color" class="form-control" #color [value]="flor.color">
 
-                <label for="anio" class="form-label">Año</label>
-                <input type="number" id="anio" class="form-control" #anio value="{{carro.anio}}">
+                    <label for="temporada" class="form-label">Temporada</label>
+                    <input type="text" id="temporada" class="form-control" #temporada [value]="flor.temporada">
 
-                <label for="precio" class="form-label">Precio</label>
-                <input type="number" id="precio" class="form-control" #precio value="{{carro.precio}}">
-
-                <label for="color" class="form-label">Color</label>
-                <input type="text" id="color" #color class="form-control" value="{{carro.color}}">
+                    <label for="caracteristica" class="form-label">Característica</label>
+                    <input type="text" id="caracteristica" class="form-control" #caracteristica [value]="flor.caracteristica">
+                </form>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button"
-                class="btn btn-success"
-                (click)="editarCarro(marca.value, modelo.value, anio.value, precio.value, color.value, carro._id!)">Editar</button>
+                <button type="submit" class="btn btn-success" (click)="editarFlor(nombre.value, color.value, temporada.value, caracteristica.value, flor._id!)">Editar</button>
             </div>
         </div>
     </div>
 </div>
-

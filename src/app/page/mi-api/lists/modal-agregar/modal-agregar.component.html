@@ -1,35 +1,32 @@
-<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1>Agregando Carro</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-  
-        <div class="modal-body">
-          <label for="marca" class="form-label">Marca</label>
-          <input type="text" id="marca" class="form-control" #marca>
-  
-          <label for="modelo" class="form-label">Modelo</label>
-          <input type="text" id="modelo" class="form-control" #modelo>
-  
-          <label for="anio" class="form-label">Año</label>
-          <input type="number" id="anio" class="form-control" #anio>
-  
-          <label for="precio" class="form-label">Precio</label>
-          <input type="number" id="precio" class="form-control" #precio>
-  
-          <label for="color" class="form-label">Color</label>
-          <input type="text" id="color" class="form-control" #color>
-        </div>
-  
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-success"
-              (click)="Agregar(marca.value, modelo.value, anio.value, precio.value, color.value)">Agregar</button>
-          </div>
-          
+<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="florModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Agregando Flor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
+      <div class="modal-body">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" class="form-control" #nombre>
+
+        <label for="color" class="form-label">Color</label>
+        <input type="text" id="color" class="form-control" #color>
+
+        <label for="temporada" class="form-label">Temporada</label>
+        <input type="text" id="temporada" class="form-control" #temporada>
+
+        <label for="caracteristica" class="form-label">Características</label>
+        <input type="text" id="caracteristica" class="form-control" #caracteristica>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success"
+          (click)="Agregar(nombre.value, color.value, temporada.value, caracteristica.value)">Agregar</button>
+      </div>
+      
     </div>
   </div>
-  
+</div>
+

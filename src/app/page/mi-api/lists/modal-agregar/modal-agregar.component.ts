@@ -1,8 +1,7 @@
 import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
-import { CarroService } from '../service/ejemplo.service';
 import { isPlatformBrowser } from '@angular/common';
-import { Carro } from '../interface/carro';
-
+import { FlorService } from '../service/ejemplo.service';
+import { Flore } from '../interface/flor';
 @Component({
   selector: 'app-modal-agregar',
   standalone: true,
@@ -17,7 +16,7 @@ export class ModalAgregarComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
-    private _carroService: CarroService
+    private _florService: FlorService
   ) {}
 
   ngAfterViewInit(): void {
@@ -30,9 +29,12 @@ export class ModalAgregarComponent {
   }
 
   inicializarModal() {
-    import('bootstrap').then((bootstrap) => {
-      this.bootstrapModal = new bootstrap.Modal(this.modal.nativeElement);
-    });
+
+    if (!this.bootstrapModal) {
+      import('bootstrap').then((bootstrap) => {
+        this.bootstrapModal = new bootstrap.Modal(this.modal.nativeElement);
+      });
+    }
   }
 
   open() {
@@ -57,33 +59,26 @@ export class ModalAgregarComponent {
       }
     }
   }
-  Agregar(marca: string, modelo: string, anio: string, precio: string, color: string) {
-    // Convertimos los valores de anio y precio a números
-    const anioNumero = parseInt(anio, 10); // convierte a entero
-    const precioNumero = parseFloat(precio); // convierte a flotante
-  
-    // Verificamos si la conversión fue exitosa
-    if (isNaN(anioNumero) || isNaN(precioNumero)) {
-      console.error('Error: El año y el precio deben ser números válidos.');
-      return; // Salimos de la función si la conversión falla
-    }
-  
-    const nuevoCarro: Carro = {
-      marca: marca,
-      modelo: modelo,
-      anio: anioNumero,
-      precio: precioNumero,
-      color: color
+  Agregar(nombre: string, color: string, temporada: string, caracteristica: string) {
+    
+    const nuevaFlor: Flore = {
+      nombre: nombre,
+      color: color,
+      temporada: temporada,
+      caracteristica: caracteristica,
+      _id: undefined,  
+      __v: 0  
     };
-  
-    this._carroService.postCarro(nuevoCarro).subscribe({
+
+    this._florService.postFlor(nuevaFlor).subscribe({
       next: (res) => {
-        console.log('Elemento agregado');
+        console.log('Flor agregada');
         this.closeModal();
         window.location.reload();
       },
       error: (error) => {
-        console.log(`Error al agregar un nuevo elemento: ${error}`);
+        console.log(`Error al agregar la flor: ${error}`);
+        
       }
     });
   }

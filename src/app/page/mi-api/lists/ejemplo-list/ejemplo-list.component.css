@@ -1,129 +1,152 @@
 .table-container {
-    margin: 20px auto;
+    overflow-x: auto;
+    max-width: 100%;
     padding: 20px;
-    max-width: 1000px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Fondo degradado */
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-out; /* Animación de entrada */
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.table {
-    width: 100%;
+    background-color: #fafafa; /* Fondo neutro */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+  
+  .table {
     border-collapse: collapse;
-    background-color: #ffffff; /* Fondo blanco para resaltar la tabla */
-    border-radius: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+    border-radius: 8px; /* Bordes redondeados */
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-.table th,
-.table td {
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  th, td {
     padding: 15px;
-    text-align: center;
-    border-bottom: 2px solid #e0e0e0; /* Bordes más gruesos para mayor visibilidad */
-    font-family: 'Poppins', sans-serif; /* Fuente moderna */
-    transition: background-color 0.3s ease; /* Transición de color de fondo */
-}
-
-.table th {
-    background: #2575fc; /* Fondo azul vibrante */
-    color: #ffffff; /* Texto blanco */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 16px;
-}
-
-.table td {
-    font-size: 14px;
-    color: #333;
-}
-
-.table-striped tbody tr:nth-child(odd) {
-    background-color: #f9f9f9; /* Fondo alternado claro */
-}
-
-.table-striped tbody tr:nth-child(even) {
-    background-color: #f1f5fc; /* Fondo alternado azul claro */
-}
-
-.table-striped tbody tr:hover {
-    background: linear-gradient(90deg, #2575fc, #6a11cb); /* Degradado llamativo al pasar el ratón */
-    color: #ffffff; /* Texto blanco */
-    transform: scale(1.02); /* Pequeña animación de zoom */
+    text-align: left;
     transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.table-striped tbody tr:active {
-    transform: scale(1.05); /* Efecto al hacer clic */
-}
-
-.btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente amigable */
+    font-size: 1rem;
+    color: #000000; /* Texto negro */
+  }
+  
+  th {
+    background-color: #e8f4f8; /* Azul pastel suave para los encabezados */
+    color: #000000; /* Texto negro */
     font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f1f1f1; /* Fondo gris claro para las filas pares */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #ffffff; /* Fondo blanco para las filas impares */
+  }
+  
+  tr:hover {
+    background-color: #d1f0ff; /* Azul suave para el hover */
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Brillo suave al pasar el ratón */
+    animation: rowHover 0.3s ease-out;
+  }
+  
+  @keyframes rowHover {
+    from {
+      background-color: #ffffff;
+    }
+    to {
+      background-color: #d1f0ff;
+    }
+  }
+  
+  td {
+    color: #000000; /* Texto negro para las celdas */
+  }
+  
+  .btn {
+    padding: 8px 15px;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: none; /* Eliminar bordes predeterminados */
-}
-
-.btn-outline-success {
-    color: #28a745;
-    border: 2px solid #28a745;
-    background-color: transparent;
-}
-
-.btn-outline-success:hover {
-    background-color: #28a745;
-    color: #ffffff;
-    transform: translateY(-2px); /* Efecto flotante */
-}
-
-.btn-outline-danger {
-    color: #dc3545;
-    border: 2px solid #dc3545;
-    background-color: transparent;
-}
-
-.btn-outline-danger:hover {
-    background-color: #dc3545;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-.mt-4 {
-    margin-top: 1.5rem;
-}
-
-.me-1 {
-    margin-right: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .table-container {
-        padding: 10px;
+    opacity: 0;
+    animation: fadeInButton 0.6s ease-out forwards;
+    border-radius: 8px; /* Bordes redondeados */
+    border: none;
+    color: #000000; /* Texto negro en los botones */
+  }
+  
+  @keyframes fadeInButton {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
-    
-    .table th, .table td {
-        font-size: 12px; /* Ajuste en el tamaño de la fuente para pantallas pequeñas */
-        padding: 10px;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    .btn {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-}
+  }
+  
+  .btn:hover {
+    transform: scale(1.05); /* Aumento sutil del tamaño del botón */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Brillo suave en botones al pasar el ratón */
+  }
+  
+  .btn-outline-success {
+    background-color: #a8d5ba; /* Verde pastel suave */
+    color: #000000; /* Texto negro */
+    border: 1px solid #a8d5ba;
+  }
+  
+  .btn-outline-danger {
+    background-color: #f8d7da; /* Rojo suave pastel */
+    color: #000000; /* Texto negro */
+    border: 1px solid #f8d7da;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #92cba3; /* Verde ligeramente más fuerte */
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Brillo verde al hacer hover */
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #f5b5b5; /* Rojo suave más saturado */
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Brillo rojo al hacer hover */
+  }
+  
+  .fas {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+  }
+  
+  .fas.fa-edit {
+    color: #28a745; /* Verde para el ícono de editar */
+  }
+  
+  .fas.fa-trash-alt {
+    color: #dc3545; /* Rojo para el ícono de eliminar */
+  }
+  
+  .fas:hover {
+    transform: scale(1.2); /* Aumento del tamaño del icono */
+    filter: brightness(1.3); /* Efecto de brillo al pasar el ratón por encima */
+  }
+  
+  .table-container .table th, .table-container .table td {
+    border: 1px solid #ddd; /* Bordes suaves */
+  }
+  
+  .table-container .table th {
+    border-top: 3px solid #a8d5ba; /* Borde superior en verde pastel */
+  }
+  
+  .table-container .table td {
+    border-bottom: 1px solid #ddd;
+  }
+  

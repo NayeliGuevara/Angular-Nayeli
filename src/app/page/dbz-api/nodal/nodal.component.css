@@ -1,9 +1,9 @@
 /* Ancho máximo del modal */
 .modal-lg {
-    max-width: 80%; /* Ajusta el ancho del modal al 80% de la pantalla */
+    max-width: 85%; /* Ancho amplio del modal */
 }
 
-/* Imagen por defecto */
+/* Imagen general */
 img {
     max-width: 100%; /* Asegura que las imágenes sean responsivas */
     height: auto; /* Mantiene la proporción */
@@ -11,24 +11,38 @@ img {
 
 /* Imagen principal del personaje */
 .principal img {
-    width: 290px;
-    height: auto; /* Cambiado a auto para mantener la proporción */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 320px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principal img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* Imagen del planeta */
 .planeta {
-    max-width: 150px; /* Ancho máximo */
-    height: 150px; /* Altura fija */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-    border-radius: 50%; /* Redondea la imagen en forma de círculo */
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #00cc99;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Modal general */
+.planeta:hover {
+    transform: scale(1.1);
+    border-color: #ff9900;
+}
+
+/* Contenido del modal */
 .modal-content {
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(135deg, #f0f8ff, #e6e9ff);
 }
 
 /* Encabezado del modal */
@@ -36,92 +50,122 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, rgba(0, 102, 51, 0.8), rgba(0, 51, 102, 0.8));
-    padding-bottom: 15px; /* Espaciado adicional */
+    background: linear-gradient(135deg, #0d47a1, #00796b);
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .modal-title {
-    font-size: 1.8rem;
-    color: #333;
+    font-size: 2.2rem;
+    color: #fff;
     font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Botón de cerrar */
+/* Icono de cierre */
 .btn-close i {
     font-size: 1.5rem;
-    color: #333;
+    color: #fff;
 }
 
 /* Imagen personalizada del personaje */
 .img-custom-size {
-    max-width: 100%; /* Responsiva */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Información del personaje */
 .modal-body p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 10px;
+    text-align: justify;
 }
 
 .modal-body h4 {
     margin-top: 20px;
     font-weight: bold;
-    color: #007bff; /* Color azul para encabezados */
+    color: #4a90e2;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Sección de transformaciones */
 .personaje img {
-    max-width: 100px; /* Ancho fijo */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 10px; /* Bordes redondeados */
+    max-width: 120px;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.personaje img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
 }
 
 .personaje p {
     font-weight: bold;
-    color: #555;
+    color: #333;
 }
 
 /* Ajustes de columnas */
 .col-6 {
-    padding: 10px; /* Espaciado alrededor de las columnas */
+    padding: 15px;
 }
 
 /* Ajustes de filas */
 .row {
-    margin-top: 20px; /* Espaciado entre filas */
+    margin-top: 25px;
 }
 
+/* Centrando el texto */
 .text-center {
-    text-align: center; /* Centra el texto */
+    text-align: center;
 }
 
 .d-flex {
-    display: flex; /* Flexbox para alineación */
+    display: flex;
 }
 
 .align-items-center {
-    align-items: center; /* Alineación vertical */
+    align-items: center;
 }
 
-/* Estilo adicional para el footer */
+/* Footer del modal */
 .modal-footer {
-    border-top: 1px solid #e5e5e5; /* Línea superior para el footer */
-    padding-top: 15px; /* Espaciado adicional */
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    background: #f8f8f8;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-/* Botones en el footer */
+/* Botones del footer */
 .modal-footer .btn-secondary {
-    background-color: #007bff; /* Color de fondo azul */
-    border: none; /* Sin borde */
-    color: white; /* Texto en blanco */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado dentro del botón */
-    transition: background-color 0.3s ease; /* Transición suave */
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .modal-footer .btn-secondary:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* Animaciones en la entrada del modal */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+.modal.fade.show .modal-dialog {
+    transform: translateY(0);
+    opacity: 1;
 }

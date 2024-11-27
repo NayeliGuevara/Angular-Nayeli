@@ -1,7 +1,8 @@
 import { Component, ElementRef, Inject, Input, PLATFORM_ID, ViewChild } from '@angular/core';
-import { Carro } from '../interface/carro';
-import { CarroService } from '../service/ejemplo.service';
+
 import { isPlatformBrowser, NgIf } from '@angular/common';
+import { Flore } from '../interface/flor';
+import { FlorService } from '../service/ejemplo.service';
 
 @Component({
   selector: 'app-modal-edit',
@@ -11,26 +12,17 @@ import { isPlatformBrowser, NgIf } from '@angular/common';
   styleUrl: './modal-edit.component.css'
 })
 export class ModalEditComponent {
-  @Input() carro: Carro = {
-    marca: '',
-    modelo: '',
-    anio: 0,
-    precio: 0,
-    color: '',
-    _id: '',
-    __v: 0
-  };
-
-  private bootstrapmodal: any;
   @ViewChild('modalElement') public modal!: ElementRef;
+  flor: Flore | undefined;
+  bootstrapModal: any;
 
   constructor(
-    @Inject(PLATFORM_ID) private plataformId: object,
-    private _carroService: CarroService
+    @Inject(PLATFORM_ID) private platformId: object,
+    private _florService: FlorService
   ) {}
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.plataformId)) {
+    if (isPlatformBrowser(this.platformId)) {
       this.inicializarModal();
     }
     if (this.modal) {
@@ -39,57 +31,55 @@ export class ModalEditComponent {
   }
 
   inicializarModal() {
-    import('bootstrap').then((boostrap) => {
-      this.bootstrapmodal = new boostrap.Modal(this.modal.nativeElement);
-    });
+    if (!this.bootstrapModal) {
+      import('bootstrap').then((bootstrap) => {
+        this.bootstrapModal = new bootstrap.Modal(this.modal.nativeElement);
+      });
+    }
   }
 
-  open(carro: Carro) {
-    this.carro = carro;
-    if (isPlatformBrowser(this.plataformId)) {
-      if (this.bootstrapmodal) {
-        this.bootstrapmodal.show();
+  open(flor: Flore) {
+    this.flor = flor;  // Asegúrate de que flor esté disponible cuando se abre el modal
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.bootstrapModal) {
+        this.bootstrapModal.show();
       } else {
         this.inicializarModal();
         setTimeout(() => {
-          this.bootstrapmodal.show();
+          this.bootstrapModal.show();
         }, 0);
       }
     }
   }
 
   closeModal() {
-    if (isPlatformBrowser(this.plataformId)) {
-      if (this.bootstrapmodal) {
-        this.bootstrapmodal.hide();
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.bootstrapModal) {
+        this.bootstrapModal.hide();
       } else {
         console.error('El modal no está inicializado.');
       }
     }
   }
 
-  editarCarro(marca: string, modelo: string, anio: string, precio: string, color: string, id: string) {
-    // Convertir los valores de 'anio' y 'precio' a números usando 'Number()'
-    const newCarro: Carro = {
-      marca: marca,
-      modelo: modelo,
-      anio: Number(anio),   // Convertir 'anio' de string a número
-      precio: Number(precio), // Convertir 'precio' de string a número
-      color: color,
+  editarFlor(nombre: string, color: string, temporada: string, caracteristica: string, id: string) {
+    const flor: Flore = {
       _id: id,
-      __v: 0
+      nombre: nombre,
+      color: color,
+      temporada: temporada,
+      caracteristica: caracteristica
     };
-  
-    this._carroService.putCarro(id, newCarro).subscribe({
+
+    this._florService.putFlor(id, flor).subscribe({
       next: (response) => {
-        console.log('Carro editado con éxito');
+        console.log('Flor editado con éxito');
         this.closeModal();
         window.location.reload();
       },
       error: (error) => {
-        console.error(`Error al intentar actualizar el carro: ${error}`);
+        console.error(`Error al intentar actualizar el Flor: ${error}`);
       }
     });
   }
-  
 }

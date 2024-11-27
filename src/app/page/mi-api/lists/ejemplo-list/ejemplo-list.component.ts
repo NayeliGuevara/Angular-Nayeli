@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Carro, CarrosAll } from '../interface/carro';
-import { CarroService } from '../service/ejemplo.service';
+
 import { NgFor, NgIf } from '@angular/common';
 
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
+import { Flore, FloresAll } from '../interface/flor';
+import { FlorService } from '../service/ejemplo.service';
 @Component({
 selector: 'app-ejemplo-list',
   standalone: true,
@@ -11,25 +12,26 @@ selector: 'app-ejemplo-list',
   templateUrl: './ejemplo-list.component.html',
   styleUrls: ['./ejemplo-list.component.css']
 })
-export class CarroListComponent implements OnInit {
-   @Input() carro: CarrosAll | undefined;
-  @ViewChild(ModalEditComponent) public modal!: ModalEditComponent;  // Obtención del modal
+export class FlorListComponent implements OnInit {
+  @Input() Flore: FloresAll | undefined;
 
-  constructor(private carroService: CarroService) {}
+  @ViewChild(ModalEditComponent) public modal!: ModalEditComponent;  
+
+  constructor(private florService: FlorService) {}  
 
   ngOnInit(): void {}
 
-  openModal(carro: Carro): void {
+  openModal(Flore: Flore): void {  
     if (this.modal) {
-      this.modal.open(carro);  // Abre el modal pasando el objeto carro
+      this.modal.open(Flore);  
     } else {
       console.error('Modal no encontrado');
     }
   }
 
-  eliminarEjemplo(id: string): void {
-    this.carroService.deleteCarro(id).subscribe(() => {
-      console.log('Ejemplo eliminado');
+  eliminarFlor(id: string): void { 
+    this.florService.deleteFlor(id).subscribe(() => {  
+      console.log('Flor eliminada');
       window.location.reload();
     });
   }

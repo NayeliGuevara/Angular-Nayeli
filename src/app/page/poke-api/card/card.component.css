@@ -1,31 +1,90 @@
-.card {
-    background: rgba(0, 51, 102, 0.7); /* Azul marino oscuro con opacidad del 70% */
-    border: none; /* Sin borde para un diseño más limpio */
-    border-radius: 10px; /* Bordes redondeados */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para efectos */
-    height: auto;
+
+.drink-card {
+  border: 1px solid #151615; /* Borde verde claro */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2); /* Sombra con tono verde */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: #f0fff0; /* Fondo verde muy claro */
+  padding-top: 12px;
+  overflow: hidden;
 }
 
-.card:hover {
-    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Agrega sombra al pasar el mouse */
+.drink-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to bottom, #f2c2ff, #a1c4fd);
+  box-shadow: 0 8px 16px rgba(232, 235, 232, 0.4); /* Sombra más intensa al hacer hover */
 }
 
-/* Estilo para la imagen dentro de la tarjeta */
-.card-img-top {
-    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
-    width: auto;
-    height: 150px;
-    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+/* Estilos para la imagen */
+.drink-image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  filter: brightness(0.9); /* Sutil reducción de brillo */
 }
 
-/* Estilo para los botones */
+.drink-card:hover .drink-image {
+  transform: scale(1.1); /* Zoom en la imagen al hacer hover en la tarjeta */
+  filter: brightness(1); /* Imagen más brillante en hover */
+}
+
+.loading-spinner {
+  margin: 0 auto;
+  display: block;
+}
+
+/* Estilos del cuerpo de la tarjeta */
+.card-body {
+  padding: 20px 15px;
+  text-align: center;
+  background: linear-gradient(to bottom, #f2c2ff, #a1c4fd); /* Fondo blanco para el contenido */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.card-title {
+  color: #0a0a0a; /* Verde claro para el título */
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 1px rgba(0, 128, 0, 0.1); /* Sombra leve para el título */
+}
+
+.card-text {
+  color: #333333; /* Texto en color oscuro */
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Botón */
 .btn-primary {
-    background: linear-gradient(135deg, rgba(0, 102, 51, 0.8), rgba(0, 51, 102, 0.8));
-    border: none; /* Sin borde para un diseño más limpio */
-    transition: background 0.3s; /* Transición suave para el color de fondo */
+  background-color: #d298e0; /* Botón con verde claro */
+  border-color: #080808;
+  color: rgb(27, 26, 26);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 3px 6px rgba(0, 128, 0, 0.2); /* Sombra para el botón */
 }
 
 .btn-primary:hover {
-    background: rgba(0, 102, 51, 1); /* Cambia a un color sólido al pasar el mouse */
+  background-color: #f0f1f0; /* Verde más oscuro en hover */
+  border-color: #111111;
+  box-shadow: 0 6px 12px rgba(236, 240, 236, 0.4); /* Sombra más intensa en hover */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Estilos de mensaje cuando no hay cócteles */
+.no-cocteles p {
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 20px;
 }

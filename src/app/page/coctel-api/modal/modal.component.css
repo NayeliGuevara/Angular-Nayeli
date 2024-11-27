@@ -1,51 +1,141 @@
-/* Modal */
+/* Estilos para el modal */
 .modal-content {
-  border-radius: 10px;
-  background-color: #f0fff0; /* Fondo verde muy claro */
-  border: 1px solid #28a745; /* Borde verde claro */
-  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2); /* Sombra con un toque de verde */
+  background-color: #f3effd; /* Fondo en tono lavanda más claro */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  padding-bottom: 20px;
+  border: 1px solid #e0d1f3;
 }
 
 .modal-header {
-  background-color: #28a745 !important; /* Fondo verde claro */
-  color: white; /* Texto blanco */
-  border-bottom: none;
-}
-
-.btn-close-white {
-  filter: brightness(0) invert(1); /* Asegura que el botón de cierre sea visible sobre el fondo verde */
+  background-image: linear-gradient(135deg, #b680d2, #8b4ec8); /* Gradiente violeta mejorado */
+  color: #fff;
+  padding: 20px 25px;
+  border-bottom: 4px solid #8b4ec8;
+  border-radius: 15px 15px 0 0;
 }
 
 .modal-title {
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.btn-close-white {
+  filter: brightness(0) invert(1);
+}
+
+.modal-body {
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* Imagen principal */
 .imagenprincipal {
-  border-color: #28a745; /* Borde verde claro */
-  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.3); /* Sombra verde en la imagen */
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0px 6px 15px rgba(50, 50, 50, 0.3);
+  border: 6px solid #d6cef0;
 }
 
-.modal-body h5, .modal-body h6 {
-  color: #28a745; /* Verde claro para los títulos de la sección */
+.imagenprincipal:hover {
+  transform: scale(1.1);
+  border-color: #b680d2;
 }
 
-.modal-body p, .modal-body li {
-  color: black; /* Verde más oscuro para el texto */
+.modal-body h5 {
+  color: #4c4a60;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
-.modal-footer {
-  border-top: none;
-  background-color: #f0fff0; /* Fondo verde muy claro */
+.modal-body p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
 }
 
+.modal-body h6 {
+  color: #28a745;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.list-unstyled li {
+  font-size: 1.1rem;
+  color: #5a5a5a;
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.list-unstyled li:hover {
+  color: #28a745;
+}
+
+.list-unstyled li::before {
+  content: "🌱";
+  font-size: 1rem;
+  position: absolute;
+  left: 5px;
+}
+
+/* Botones */
 .btn-secondary {
-  background-color: #28a745; /* Botón verde claro */
-  border-color: #28a745;
+  background-color: #6c757d;
+  border-color: #6c757d;
   color: white;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 3px 8px rgba(108, 117, 125, 0.4);
 }
 
 .btn-secondary:hover {
-  background-color: #218838; /* Verde más oscuro en hover */
-  border-color: #1e7e34;
+  background-color: #5a6268;
+  box-shadow: 0 8px 16px rgba(108, 117, 125, 0.5);
+  transform: scale(1.05);
 }
 
+/* Footer del modal */
+.modal-footer {
+  background-color: #f8f9fc;
+  border-top: 1px solid #dedede;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Transiciones y animaciones */
+.modal-body p,
+.modal-body h6 {
+  transition: color 0.3s ease;
+}
+
+.modal-body p:hover {
+  color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 95%;
+  }
+  .modal-body {
+    padding: 20px;
+  }
+}
